@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>SoundCloud Randomizer</title>
-    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/build/css/allConcat.css">
     <script type="text/javascript" src="build/js/vendor.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
     <script src="//connect.soundcloud.com/sdk.js"></script>
@@ -12,14 +12,13 @@
     <header>
       <h1>SoundCloud Randomizer</h1>
       <p>Completely Random SoundCloud Song Selection</p>
+      <button type="button" id="skip-song">Skip</button>
+      <!-- <button type="button" id="finding" name="button">Finding Next Song</button> -->
     </header>
-    <div id="widget">
+    <div class="row">
+      <div class="twelve columns" id="widget"></div>
+      <div class="two columns" id="last-songs"></div>
+      <!-- <div class="four columns" id="saved-songs"></div> -->
     </div>
   </body>
-  <!-- <body>
-    <h1>SoundCloud API usage &mdash; JavaScript SDK</h1> -->
-
-    <!-- <button id="embedTrack">Embed Track</button> -->
-    <!-- <div id="player"></div>
-  </body> -->
 </html>

@@ -10,9 +10,6 @@ header {
   text-align: center;
 }
 
-#widget {
-  height: 400px;
-  width: 400px;
-  background-color: #f3f3f3;
-  margin: 0 auto;
+#finding {
+  display: none;
 }
