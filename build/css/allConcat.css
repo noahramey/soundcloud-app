@@ -859,3 +859,17 @@ header {
 #finding {
   display: none;
 }
+
+#last-songs {
+  max-height: 400px;
+  overflow: hidden;
+}
+
+#skip-song {
+  display: none;
+}
+
+img {
+  width: 95.5px;
+  height: 95.5px;
+}

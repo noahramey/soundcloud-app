@@ -14,7 +14,7 @@ var playedTracksArtArray = [];
 var findTracksForArray = function() {
   random = (Math.floor((Math.random() * 300000000) + 10000000));
   SC.get('/tracks/' + random).then(function(track){
-    if (track.playback_count > 100) {
+    if (track.playback_count > 500) {
       tracksUrlArray.push(track.permalink_url);
       if (track.artwork_url) {
         tracksArtArray.push(track.artwork_url);
@@ -35,7 +35,9 @@ var loadTrack = function() {
     $('#widget').html(result.html);
   });
 
-  // $('#last-songs').prepend('<div class="row"><a target="_blank" href="' + playedTracksUrlArray[counter - 1] + '"><img src="' + playedTracksArtArray[counter - 1] + '" class="thumb"></a></div>');
+  for (var i = 0; i < playedTracksUrlArray.length; i++) {
+    $('#last-songs').prepend('<div class="row"><a target="_blank" href="' + playedTracksUrlArray[i] + '"><img src="' + playedTracksArtArray[i] + '" class="thumb"></a></div>');
+  }
 
   playedTracksUrlArray.push(tracksUrlArray[counter]);
   playedTracksArtArray.push(tracksArtArray[counter]);
@@ -45,13 +47,18 @@ var loadTrack = function() {
 
 // FRONTEND
 $(document).ready(function() {
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 50; i++) {
     findTracksForArray();
   }
-
+  $('#start-stream').click(function() {
+    $('#start-stream').hide();
+    $('#skip-song').show();
+    $('#widget').fadeIn();
+    loadTrack();
+  });
   $('#skip-song').click(function() {
     $('#widget').removeClass("twelve columns").addClass("ten columns");
     $('#last-songs').text("");
-    loadTrack(counter);
+    loadTrack();
   });
 });
